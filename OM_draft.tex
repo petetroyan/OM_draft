@@ -1,0 +1,207 @@
+%% LyX 2.2.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,letterpaper]{extarticle}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage[active]{srcltx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage[authoryear]{natbib}
+\doublespacing
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\special{papersize=\the\paperwidth,\the\paperheight}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+  \theoremstyle{definition}
+  \newtheorem{defn}{\protect\definitionname}
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}
+  \theoremstyle{plain}
+  \newtheorem{lem}{\protect\lemmaname}
+  \theoremstyle{plain}
+  \newtheorem{prop}{\protect\propositionname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+%&latex
+
+\linespread{1.05}
+
+
+
+\usepackage{amsthm}
+\usepackage[bottom]{footmisc}
+
+\usepackage{pdfsync}
+
+\usepackage{natbib}
+\setlength{\bibsep}{0.0pt}
+
+\makeatother
+
+  \providecommand{\definitionname}{Definition}
+  \providecommand{\lemmaname}{Lemma}
+  \providecommand{\propositionname}{Proposition}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+
+\title{(Non-)Obvious Manipulability (???)}
+
+\author{Thayer Morrill \\Department of Economics \\North Carolina State University \and Peter Troyan\\ Department of Economics \\ University of Virginia
+}
+\maketitle
+\begin{abstract}
+Abstract TBD
+\end{abstract}
+
+\section{Introduction}
+
+This is the greatest paper ever. 
+
+\subsection{Motivating example?}
+
+Maybe include a motivating example (e.g., school choice, where Boston
+is obviously manipulable, but EADA is not)
+
+\section{Model}
+
+There is a finite set of agents $I$ and a finite set of outcomes
+$X$. The set $\Theta_{i}$ denotes the set of possible \textbf{types
+}for agent $i$, with generic element denoted $\theta_{i}\in\Theta_{i}$.
+Each agent has a utility function $u_{i}:X\times\Theta_{i}\rightarrow\mathbb{R}$.
+For some of our applications, such as school choice, only the ordinal
+information contained in the utility function will be relevant, and
+$\theta_{i}$ can be thought of as encoding an agent's ordinal preference
+ranking over alternatives. For other applications, such as auctions,
+agent utilities will be quasilinear in money.  
+
+Let $\Theta=\Pi_{i\in I}\Theta_{i}$. A \textbf{mechanism }is a function
+$f:\Theta\rightarrow X$ that maps type profiles to outcomes. The
+standard definition of strategyproofness requires that truthful reporting
+be a weakly dominant strategy in the preference revelation game induced
+by the mechanism, i.e., for all $i$, $u_{i}(f(\theta_{i},\theta_{-i}),\theta_{i})\geq u_{i}(f(\theta_{i}',\theta_{-i}),\theta_{i})$
+for all $i,$ all $\theta_{i},\theta_{i}'\in\Theta_{i}$, and all
+$\theta_{-i}\in\Theta_{-i}$. If there exists some $\theta_{i},\theta_{i}'$
+and $\theta_{-i}$ such that $u_{i}(f(\theta_{i}',\theta_{-i}),\theta_{i})>u_{i}(f(\theta_{i},\theta_{-i}),\theta_{i})$
+then $f$ is said to be \textbf{manipulable}, and reporting $\theta_{i}'$
+is a \textbf{manipulation} for type $\theta_{i}$. Note that for a
+mechanism to be classified as manipulable, there must simply be \emph{some
+}profile of for the other agents $\theta_{-i}$ such that reporting
+$\theta_{i}'$ is better than reporting the true $\theta_{i}$ for
+agent $i$. However, in other instances, reporting $\theta_{i}'$
+may actually be worse for agent $i$ than reporting truthfully. Thus,
+it may be very non-obvious whether such a manipulation will be profitable.
+Additionally, determining all possible outcomes from a potential report
+$\theta_{i}'$ can be a very difficult and time-consuming process;
+in many cases, agents may more naturally just look for the best and/or
+worst outcomes from two potential reports, and compare those \textbf{{[}probably
+should justify this better, maybe add some references?{]}}. These
+ideas motivate the following definition.
+\begin{defn}
+Consider an agent $i$ of type $\theta_{i}$. Reporting $\theta_{i}'\neq\theta_{i}$
+is an \textbf{obvious manipulation }of mechanism $f$ if \medskip
+
+(i) $\inf_{\theta_{-i}}u_{i}(f(\theta_{i}',\theta_{-i}),\theta_{i})>\inf_{\theta_{-i}}u_{i}(f(\theta_{i},\theta_{-i}),\theta_{i})$,
+or \medskip
+
+(ii) $\inf_{\theta_{-i}}u_{i}(f(\theta_{i}',\theta_{-i}),\theta_{i})=\inf_{\theta_{-i}}u_{i}(f(\theta_{i},\theta_{-i}),\theta_{i})$
+and $\sup_{\theta_{-i}}u_{i}(f(\theta_{i}',\theta_{-i}),\theta_{i})>\sup_{\theta_{-i}}u_{i}(f(\theta_{i},\theta_{-i}),\theta_{i})$. 
+\end{defn}
+In words, an obvious manipulation is a manipulation such that lying
+either (i) makes the agent better off in the worst-case or (ii) makes
+the agent better off in the best-case, without harming her in the
+worst case. If neither (i) nor (ii) hold, then reporting $\theta_{i}'\neq\theta_{i}$
+is a \textbf{non-obvious manipulation}.\footnote{In particular, this holds if lying makes the agent strictly worse
+off in the worst case, i.e., $\inf_{\theta_{-i}}u_{i}(f(\theta_{i}',\theta_{-i}),\theta_{i})<\inf_{\theta_{-i}}u_{i}(f(\theta_{i},\theta_{-i}),\theta_{i})$.}
+
+\section{School choice}
+
+We consider a canonical model of school choice, as in the seminal
+paper of \citet{Abdulkadiroglu:AER:2003}. Let $S$ be a set of schools.
+An outcome $x\in X$ is then a mapping $x:I\rightarrow S$ that returns
+each student's assigned school. A student's utility from an outcome
+$x$ depends only on her own assignment, and so for this section,
+an agent's type $\theta_{i}$ can be identified with a vector $\theta_{i}\in\mathbb{R}^{|S|}$,
+and we can define utility functions over schools $a\in S$ as $u_{i}(a,\theta_{i})=\theta_{i}^{a}.$
+
+Each school $a$ has a\textbf{ }priority relation $\succ_{a}$ over
+the set of students (agents) $I$. An additional important desiderata
+in school choice is \textbf{fairness }(sometimes called \textbf{no
+justified envy}). Given an outcome $x$, we say that student $i$
+\textbf{claims a seat }at school $a$ if $u_{i}(a,\theta_{i})>u_{i}(x(i),\theta_{i})$
+and either (i) school $a$ has an empty seat or (ii) there exists
+a student $j$ such that $x(j)=a$ and $i\succ_{a}j$. If no student
+claims any seat, then outcome $x$ is said to be \textbf{fair}.\textbf{ }
+
+One of the most popular mechanisms in school choice is the deferred
+acceptance (DA) mechanism of \citet{Gale:AMM:1962}. Two important
+properties of DA are that it is strategyproof and fair; the main drawback
+is that it is not efficient. Because it is not efficient, it is important
+to understand whether we can improve upon DA from a welfare perspective.
+Formally, given two mechanisms $f,g$, say that $f$ \textbf{Pareto
+dominates }$g$ if $u_{i}(f(\theta),\theta_{i})\geq u_{i}(g(\theta),\theta_{i})$
+for all $i$ and all $\theta\in\Theta$, with the inequality strict
+for at least one $i,\theta$. \citet{Abdulkadiroglu:AER:2009} and
+\citet{kesten:QJE:2010} show that any mechanism that Pareto dominates
+DA is necessarily manipulable . However, as our main result shows,
+while such mechanisms may be manipulable, they are not obviously manipulable. 
+\begin{thm}
+Let $f^{DA}$ be the $DA$ mechanism, and $g$ be a mechanism that
+Pareto dominates $f^{DA}$. Then, $g$ is not obviously manipulable. 
+\end{thm}
+\begin{proof}
+Given a student $i$ of type $\theta_{i}$, define the \textbf{upper
+contour set at $a$ }as $\pi_{i}(a)=\{b\in S:u_{i}(b,\theta_{i})\geq u_{i}(a,\theta_{i})\}$.
+Any subset $S'\subset\pi_{i}(a)$ is referred to as an \textbf{upper
+contour subset at $a$}. Let $B_{i}(a)=\{j\in I:j\succ_{a}i\}$ be
+the set of students who have higher priority at $a$ than $i$. Last,
+given a mechanism $f$, let 
+\[
+\omega_{i}^{f}(\theta_{i})=\min_{\theta_{-i}}u_{i}(f(\theta_{i},\theta_{-i}),\theta_{i}).
+\]
+ In words, $\omega_{i}^{f}(\theta_{i})$ is the worst-case outcome
+for $i$ in mechanism $f$ when she has preferences $\theta_{i}$,
+taken over all reports of the other agents.
+\begin{lem}
+For any school $a\in S$, $u_{i}(a,\theta_{i})>\omega_{i}^{f}(\theta_{i})$
+if and only if, for every upper contour subset $S'\subset\pi_{i}(a)$,
+the following holds:
+\[
+\sum_{s\in S'}q_{s}\leq|\cup_{s\in S'}B_{i}(s)|.
+\]
+\end{lem}
+\emph{Proof of lemma. $\square$}
+\end{proof}
+To show that a mechanism is obviously manipulable, it suffices to
+exhibit a student who has an obvious manipulation. For the Boston
+mechanism, this is provided in the motivating example discussed in
+the introduction. For completeness, we state this as the following
+result.
+\begin{prop}
+The Boston mechanism is obviously manipulable. 
+\end{prop}
+
+\section{Other applications}
+
+\subsection{Two-sided matching}
+
+\subsection{Auctions}
+
+\subsection{Others?}
+
+\section{Conclusion}
+
+Wasn't this the greatest paper ever?
+
+\bibliographystyle{ecta}
+\bibliography{\string"/Users/pgt8y/Dropbox/Research/master-bib-file\string"}
+
+\end{document}
